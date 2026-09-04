@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RefPunch — Reference mix punch lists in the browser</title>
+  <meta name="description" content="Drop your bounce and a reference track. RefPunch compares energy, brightness, loudness and section shape, then writes a mix punch list." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="grain"></div>
+  <header class="nav">
+    <a class="logo" href="#top">REF<span>PUNCH</span></a>
+    <nav>
+      <a href="#studio">Studio</a>
+      <a href="#why">Gap</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn ghost" href="#studio">Open studio</a>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <p class="kicker">Morning ship · 4 Sep 2026 · WorkinWithAi</p>
+      <h1>Your bounce is not the reference.<br />Stop guessing why.</h1>
+      <p class="lede">AI generators and cheap masters get you a file. They do not tell you where the chorus is quieter, the drop is late, or the top end died. RefPunch is a browser mix desk: drop your track + a reference, get a punch list.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="#studio">Compare two tracks</a>
+        <button class="btn ghost" id="load-demo">Load demo session</button>
+      </div>
+    </section>
+    <section id="why" class="why">
+      <h2>What is missing on X right now</h2>
+      <div class="grid3">
+        <article><h3>Generation is solved. Finishing is not.</h3><p>Suno-class tools spit full mixes. Bedroom producers still cannot hear why a reference slaps and their bounce does not.</p></article>
+        <article><h3>Mastering apps hide the why.</h3><p>One-knob loudness is everywhere. Nobody ships a visual “chorus is 1.8 dB down” desk next to it.</p></article>
+        <article><h3>Intent never leaves the session.</h3><p>Producers want a punch list they can hand an engineer, an agent, or tomorrow-morning-them.</p></article>
+      </div>
+    </section>
+    <section id="studio" class="studio">
+      <div class="studio-head"><h2>Studio</h2><p>Audio never leaves this tab. Analysis uses the Web Audio API.</p></div>
+      <div class="drops">
+        <label class="drop" data-slot="yours"><input type="file" accept="audio/*" id="file-yours" /><span class="slot-tag">YOURS</span><strong id="name-yours">Drop your bounce</strong><small>wav / mp3 / m4a / flac</small></label>
+        <label class="drop" data-slot="ref"><input type="file" accept="audio/*" id="file-ref" /><span class="slot-tag">REFERENCE</span><strong id="name-ref">Drop a reference</strong><small>a finished track you want to sit next to</small></label>
+      </div>
+      <div class="meter-row"><canvas id="wave" height="180"></canvas><div class="stats" id="stats"><p class="muted">Load two files or tap Load demo session.</p></div></div>
+      <div class="work">
+        <div><h3>Punch list</h3><ol id="punches" class="punches"></ol></div>
+        <div><h3>Section guess</h3><div id="sections" class="sections"></div>
+          <div class="export-row"><button class="btn solid" id="export-txt">Export .txt</button><button class="btn ghost" id="export-json">Export .json</button></div>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="pricing">
+      <h2>Pricing</h2>
+      <div class="plans">
+        <article><h3>Desk</h3><p class="price">$0</p><ul><li>1 comparison per session</li><li>Energy + loudness overlay</li></ul><a class="btn ghost" href="#studio">Use free</a></article>
+        <article class="featured"><h3>Pro</h3><p class="price">$12<span>/mo</span></p><ul><li>Unlimited compares</li><li>JSON + marker export</li></ul><a class="btn solid" href="https://lemonsqueezy.com" target="_blank" rel="noreferrer">Subscribe</a></article>
+        <article><h3>Forge</h3><p class="price">$79<span> once</span></p><ul><li>Everything in Pro</li><li>Lifetime updates</li></ul><a class="btn ghost" href="https://lemonsqueezy.com" target="_blank" rel="noreferrer">Buy lifetime</a></article>
+      </div>
+    </section>
+  </main>
+  <footer><p>RefPunch · WorkinWithAi morning build · Not a replacement for a mastering engineer.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
